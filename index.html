@@ -1,6 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <title>A deeper introduction in Unix dc</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+body { background-color: #DDDDDD; }
+img { max-width: 100%; }
+pre { overflow: auto; }
+</head>
+<body>
 
 <h2>A deeper introduction in Unix dc</h2>
 
@@ -81,11 +89,11 @@ It's your turn now, you only have to modify the code above!
 
 
 <h3>5. Mandelbrot set</h3>
-See: <a href="https://github.com/ben165/unix_dc/blob/master/mandelbrot.dc">Repositorie <i>ben165/unix_dc</i></a>
+File: <a href="https://github.com/ben165/unix_dc/blob/master/mandelbrot.dc">mandelbrot.dc</a>
 <p />
 This code is far away from beeing good. I'm happy it worked out at the end. I literally sacrificed some brain parts writing this. 
 <p />
-Anyways, it creates an ASCII pattern which can be saved as a portable bitmap (PPM). With the conditions of 600x400, a precision of 20 and an iteration amount of 25 you get this picture.
+Anyways, it creates an ASCII pattern which can be saved as a portable bitmap (PPM). With the conditions of 600x400 (row 6,7), a precision of 20 (row 2) and an iteration amount of 25 (row 28) you get following output.
 <p />
 <pre>
 dc -f mandelbrot.dc > mandelbrot.ppm
