@@ -1,0 +1,59 @@
+c
+20
+k
+
+[P1] p
+3 100 d n [ ] n / sq
+2 26 d n / sw
+
+
+[
+[0 n lt 2 + Q] sk
+
+0 sc
+0 sd
+0 se
+0 st
+
+[
+2 lc * ld * la + si
+ld 2 ^ lc 2 ^ - lb + d sr sd
+li sc
+
+lc 2 ^ ld 2 ^ + d se
+
+4 <k
+
+lt 1 + d st
+25 >f
+#[ ] n lt n
+[1] n lt Q
+] sf
+
+lf x
+] sj
+
+
+[
+_2 sb
+
+[lj x lb lq + d sb 1 >u] su
+
+lu x
+] sE
+
+1 sa
+[ [ ] p c lE x la lw - d sa _1<W] sW
+lW x
+
+[ ] p
+
+#1.0 sa
+#lE x [ ] p c
+#0.8 sa
+#lE x [ ] p c
+#0.6 sa
+#lE x [ ] p c
+
+
+

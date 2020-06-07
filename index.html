@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>A deeper introduction in Unix dc</title>
+
+<h2>A deeper introduction in Unix dc</h2>
+
+<img src="mandelbrot.png" alt="Mandelbrot calculated with unix dc" width="500" />
+
+<h3>The program</h3>
+Unix dc is one of the oldest interpreter programs which is still available on most of the Linux distros without installing it. The program goes back to the PDP-11 era. The programming of it must be easier than any serious assembler or other kind of interpreters like BASIC, because it was sometimes earlier available [<a href="https://en.wikipedia.org/wiki/Dc_(computer_program)" target="_blank">1</a>, <a href="https://www.bell-labs.com/usr/dmr/www/hist.html" target="_blank">2</a>]. It moves the difficulty to code to the programmer.
+<p/>
+DC stands for <b>d</b>esk <b>c</b>alculator and can be programmed in reverse-polish notation. It's a stack oriented and supports arbitrary-precision. It supports registers, conditional statements and loops. These things are realised with macros saved in registers. Registers can only be single characters. It's really weird to program it.
+<p/>
+Dc can be started with the command <b>dc</b> on your terminal. There will be no welcome text, just a plain command line for you to get things done right now! You can try these code snippets online with the <a href="https://bellard.org/jslinux/vm.html?url=buildroot-x86.cfg" target="_blank">JS Linux</a> from bellard.org.
+
+<h3>1. Variables</h3>
+You can copy and paste the text or execute it from a file with <b>dc -f file.dc</b>.
+
+
+<pre>
+# This is a comment.
+# <b>l</b> for load <b>s</b> for save
+1 sa
+2 sb
+3 sc
+
+la lb + lc * p sd
+</pre>
+
+Will print 9 and keeps it on the stack until it's saved to register <b>d</b>.
+
+
+<h3>2. A conditional statement</h3>
+
+<pre>
+# function f, prints chars and deletes the stack
+[ [a is bigger then 10] p c] sf
+
+# executes function f if a is bigger than 10
+
+# nothing happens
+8 sa
+[la 10 &lt;f] x
+
+# function is called
+11 sa
+[la 10 &lt;f] x
+</pre>
+
+
+<h3>3. A for loop</h3>
+<pre>
+# prints number 0 to 10
+# <b>d</b> is duplicate, <b>x</b> execute
+0 sa
+[la p 1 + d sa 10 !&lt;f] sf
+lf x
+
+# a faster way without a variable
+[p 1 + d 10 !&lt;f] sf
+0 lf x
+</pre>
+
+<h3>4. A loop in an inner loop</h3>
+<pre>
+# <b>xQ</b> leaves macros to level <b>x</b>. 
+# It's a termination condition for the recursive function. 
+# The <b>[A] p</b> is never executed. 
+# The <b>st</b> only removes the last variable from the stack. 
+
+[p 1 + d 3 !&lt;f st 4Q [A] p] sf
+
+[1 + d d sa 0 lf x 3 !&lt;g] sg
+
+0
+lg x
+</pre>
+
+<h3>4. A multiplication table</h3>
+It's your turn now, you only have to modify the code above!
+
+
+<h3>5. Mandelbrot set</h3>
+This code is far away from beeing good. I'm happy it worked out at the end. I literally sacrificed some brain parts writing this. It would be easier if I'm used to it. 
+<br />
+Anyways, it creates an ASCII pattern 
+<h3>Credits</h3>
+08.06.2020<br/>
+GitHub: ben165
+
