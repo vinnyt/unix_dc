@@ -17,10 +17,12 @@ pre { overflow: auto; }
 <img src="mandelbrot.png" alt="Mandelbrot calculated with unix dc" width="500" />
 
 <h3>The program</h3>
+<p>
 Unix dc is one of the oldest interpreter programs which is still available on most of the Linux distros without installing it. The program goes back to the PDP-11 era. The programming of it must be easier than any serious assembler or other kind of interpreters like BASIC, because it was sometimes earlier available [<a href="https://en.wikipedia.org/wiki/Dc_(computer_program)" target="_blank">1</a>, <a href="https://www.bell-labs.com/usr/dmr/www/hist.html" target="_blank">2</a>]. It moves the difficulty to code to the programmer.
-<p/>
+</p>
+<p>
 DC stands for <b>d</b>esk <b>c</b>alculator and can be programmed in reverse-polish notation. It's a stack oriented and supports arbitrary-precision. It supports registers, conditional statements and loops. These things are realised with macros saved in registers. Registers can only be single characters. It's really weird to program it.
-<p/>
+</p>
 Dc can be started with the command <b>dc</b> on your terminal. There will be no welcome text, just a plain command line for you to get things done right now! You can try these code snippets online with the <a href="https://bellard.org/jslinux/vm.html?url=buildroot-x86.cfg" target="_blank">JS Linux</a> from bellard.org.
 
 <h3>1. Variables</h3>
@@ -91,12 +93,15 @@ It's your turn now, you only have to modify the code above!
 
 
 <h3>5. Mandelbrot set</h3>
+<p>
 File: <a href="https://github.com/ben165/unix_dc/blob/master/mandelbrot.dc">mandelbrot.dc</a>
-<p />
+</p>
+<p>
 This code is far away from beeing good. I'm happy it worked out at the end. I literally sacrificed some brain parts writing this. 
-<p />
+</p>
+<p>
 Anyways, it creates an ASCII pattern which can be saved as a portable bitmap (PPM). With the conditions of 600x400 (row 6,7), a precision of 20 (row 2) and an iteration amount of 25 (row 28) you get following output.
-<p />
+</p>
 <pre>
 dc -f mandelbrot.dc > mandelbrot.ppm
 </pre>
