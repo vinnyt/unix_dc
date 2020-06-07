@@ -81,10 +81,19 @@ It's your turn now, you only have to modify the code above!
 
 
 <h3>5. Mandelbrot set</h3>
+See: <a href="https://github.com/ben165/unix_dc/blob/master/mandelbrot.dc">Repositorie <i>ben165/unix_dc</i></a>
+
 This code is far away from beeing good. I'm happy it worked out at the end. I literally sacrificed some brain parts writing this. It would be easier if I'm used to it. 
 <br />
-Anyways, it creates an ASCII pattern 
+Anyways, it creates an ASCII pattern which can be saved as a portable bitmap (PPM). With the conditions of 600x400, a precision of 20 and an iteration amount of 25 you get this picture.
+
+dc -f mandelbrot.dc > mandelbrot.ppm
+
+<img src="mandelbrot.gif" alt="Mandelbrot PPM created with DC" />
+
 <h3>Credits</h3>
 08.06.2020<br/>
 GitHub: ben165
 
+</body>
+</html>
